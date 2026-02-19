@@ -37,3 +37,52 @@ with right:
     c6.button("Export", type="primary", use_container_width=True)
 
 st.divider()
+
+# ===============================
+# FILTER SECTION
+# ===============================
+
+with st.container():
+    st.markdown("### ")
+
+    # --- Row 1 ---
+    col1, col2, col3 = st.columns([4, 4, 1])
+
+    with col1:
+        selected_class = st.selectbox(
+            "Filter by class",
+            ["All classes", "Computer Science L3.1", "Computer Science L1", "Python L1"]
+        )
+
+    with col2:
+        selected_subject = st.selectbox(
+            "Filter by subject",
+            ["All subjects", "Computer Science Level 3.1", "Computer Science Level 1", "Python Level 1"]
+        )
+
+    with col3:
+        st.write("")  # spacing
+        st.write("")
+        st.button("Clear", use_container_width=True)
+
+    # --- Row 2 ---
+    col4, col5, col6 = st.columns([4, 3, 3])
+
+    with col4:
+        search_student = st.text_input(
+            "Search students",
+            placeholder="Search by name..."
+        )
+
+    with col5:
+        selected_grade = st.selectbox(
+            "Filter by grade",
+            ["All grades", "Grade 4", "Grade 5", "Grade 7"]
+        )
+
+    with col6:
+        selected_school = st.selectbox(
+            "Filter by school",
+            ["All schools", "Lincoln Elementary", "Riverside Middle School"]
+        )
+
