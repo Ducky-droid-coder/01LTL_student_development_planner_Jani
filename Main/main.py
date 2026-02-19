@@ -122,7 +122,7 @@ with card1:
     st.markdown("""
         <div class="card">
             <div class="card-title">Total Students</div>
-            <div class="card-value">3</div>
+            <div class="card-value">0</div>
             <div class="card-subtext">Current total</div>
         </div>
     """, unsafe_allow_html=True)
