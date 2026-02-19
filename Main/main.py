@@ -86,3 +86,61 @@ with st.container():
             ["All schools", "Lincoln Elementary", "Riverside Middle School"]
         )
 
+# ===============================
+# SUMMARY CARDS
+# ===============================
+
+st.markdown("### ")
+
+card1, card2, card3 = st.columns(3)
+
+# --- Card Styling ---
+st.markdown("""
+    <style>
+        .card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e6e6e6;
+        }
+        .card-title {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .card-value {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .card-subtext {
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+with card1:
+    st.markdown("""
+        <div class="card">
+            <div class="card-title">Total Students</div>
+            <div class="card-value">3</div>
+            <div class="card-subtext">Current total</div>
+        </div>
+    """, unsafe_allow_html=True)
+
+with card2:
+    st.markdown("""
+        <div class="card">
+            <div class="card-title">This Month</div>
+            <div class="card-value">0 students</div>
+            <div class="card-subtext">Active students this month</div>
+        </div>
+    """, unsafe_allow_html=True)
+
+with card3:
+    st.markdown("""
+        <div class="card">
+            <div class="card-title">Recent Notes</div>
+            <div class="card-value">0 notes</div>
+            <div class="card-subtext">Total notes for this student</div>
+        </div>
+    """, unsafe_allow_html=True)
