@@ -22,12 +22,12 @@ st.markdown("""
         }
         .blue-btn button {
             background-color: #3b82f6;
-            color: white;
+            color: blue;
             border: none;
         }
         .blue-btn button:hover {
             background-color: #2563eb;
-            color: white;
+            color: blue;
         }
     </style>
 """, unsafe_allow_html=True)
