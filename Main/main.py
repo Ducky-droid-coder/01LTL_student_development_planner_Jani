@@ -5,59 +5,35 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Custom CSS for styling ---
+# --- Global Button Styling ---
 st.markdown("""
     <style>
-        .main-title {
-            font-size: 32px;
-            font-weight: 700;
-            padding-top: 10px;
-        }
-        .top-button {
-            margin-top: 20px;
-        }
-        div.stButton > button {
-            border-radius: 8px;
-            padding: 8px 16px;
-        }
-        .blue-btn button {
-            background-color: #3b82f6;
-            color: blue;
-            border: none;
-        }
-        .blue-btn button:hover {
-            background-color: #2563eb;
-            color: blue;
-        }
+    div.stButton > button {
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-weight: 500;
+    }
     </style>
 """, unsafe_allow_html=True)
 
 # --- Header Layout ---
-col1, col2 = st.columns([4, 6])
+left, right = st.columns([3, 7])
 
-with col1:
-    st.markdown('<div class="main-title">LTL Pathfinder</div>', unsafe_allow_html=True)
+with left:
+    st.markdown(
+        "<h2 style='margin-top:10px;'>LTL Pathfinder</h2>",
+        unsafe_allow_html=True
+    )
 
-with col2:
-    btn_cols = st.columns(6)
+with right:
+    c1, c2, c3, c4, c5, c6 = st.columns(6)
 
-    btn_cols[0].button("Categories")
-    btn_cols[1].button("Delete All")
-    btn_cols[2].button("Admin")
+    c1.button("Categories", use_container_width=True)
+    c2.button("Delete All", use_container_width=True)
+    c3.button("Admin", use_container_width=True)
 
-    with btn_cols[3]:
-        st.markdown('<div class="blue-btn">', unsafe_allow_html=True)
-        st.button("Add Student")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with btn_cols[4]:
-        st.markdown('<div class="blue-btn">', unsafe_allow_html=True)
-        st.button("AI Guide")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with btn_cols[5]:
-        st.markdown('<div class="blue-btn">', unsafe_allow_html=True)
-        st.button("Export")
-        st.markdown('</div>', unsafe_allow_html=True)
+    c4.button("Add Student", type="primary", use_container_width=True)
+    c5.button("AI Guide", type="primary", use_container_width=True)
+    c6.button("Export", type="primary", use_container_width=True)
 
 st.divider()
