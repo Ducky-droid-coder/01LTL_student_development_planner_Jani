@@ -171,32 +171,27 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ===============================
+# JSON DATA HANDLING
+# ===============================
+
+DATA_FILE = "students.json"
+
+def load_students():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    return []
+
+def save_students(data):
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+        
+
+# ===============================
 # STUDENT DATA
 # ===============================
 
-students = [
-    {
-        "name": "S1",
-        "class": "Computer Science L3.1",
-        "subject": "Computer Science Level 3.1",
-        "grade": "Grade 4",
-        "school": "Lincoln Elementary"
-    },
-    {
-        "name": "S2",
-        "class": "Computer Science L1",
-        "subject": "Computer Science Level 1",
-        "grade": "Grade 5",
-        "school": "Riverside Middle School"
-    },
-    {
-        "name": "S3",
-        "class": "Python L1",
-        "subject": "Python Level 1",
-        "grade": "Grade 7",
-        "school": "Lincoln Elementary"
-    }
-]
+students = students = load_students()
 
 # HEADER
 
