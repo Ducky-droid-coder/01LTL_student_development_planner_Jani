@@ -191,15 +191,7 @@ def save_students(data):
 # STUDENT DATA
 # ===============================
 
-def load_students():
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as f:
-            try:
-                return json.load(f)
-            except:
-                return []
-    return []
-st.write("DEBUG STUDENTS:", students)
+students = load_students()
 
 # HEADER
 
