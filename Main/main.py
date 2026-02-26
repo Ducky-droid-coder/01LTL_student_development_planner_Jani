@@ -192,6 +192,7 @@ def save_students(data):
 # ===============================
 
 students = students = load_students()
+st.write("DEBUG STUDENTS:", students)
 
 # HEADER
 
