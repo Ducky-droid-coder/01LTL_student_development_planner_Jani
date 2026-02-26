@@ -144,3 +144,56 @@ with card3:
             <div class="card-subtext">Total notes for this student</div>
         </div>
     """, unsafe_allow_html=True)
+
+# ===============================
+# STUDENT DATA
+# ===============================
+
+students = [
+    {
+        "name": "S1",
+        "class": "Computer Science L3.1",
+        "subject": "Computer Science Level 3.1",
+        "grade": "Grade 4",
+        "school": "Lincoln Elementary"
+    },
+    {
+        "name": "S2",
+        "class": "Computer Science L1",
+        "subject": "Computer Science Level 1",
+        "grade": "Grade 5",
+        "school": "Riverside Middle School"
+    },
+    {
+        "name": "S3",
+        "class": "Python L1",
+        "subject": "Python Level 1",
+        "grade": "Grade 7",
+        "school": "Lincoln Elementary"
+    }
+]
+
+st.markdown("### Students")
+
+header_cols = st.columns([2, 2, 2, 1, 2, 3])
+
+headers = ["Student Name", "Class", "Subject", "Grade", "School", "Actions"]
+
+for col, header in zip(header_cols, headers):
+    col.markdown(f"**{header}**")
+
+for student in students:
+    row = st.columns([2, 2, 2, 1, 2, 3])
+
+    row[0].write(student["name"])
+    row[1].write(student["class"])
+    row[2].write(student["subject"])
+    row[3].write(student["grade"])
+    row[4].write(student["school"])
+
+    action_cols = row[5].columns(4)
+
+    action_cols[0].button("Add Note", key=f"note_{student['name']}")
+    action_cols[1].button("Add Journey", key=f"journey_{student['name']}")
+    action_cols[2].button("Survey", key=f"survey_{student['name']}")
+    action_cols[3].button("Report", key=f"report_{student['name']}")
