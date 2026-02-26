@@ -146,6 +146,29 @@ with card3:
     """, unsafe_allow_html=True)
 
 # ===============================
+# TABLE STYLING
+# ===============================
+
+st.markdown("""
+<style>
+.table-header {
+    font-weight: 600;
+    padding: 8px 0px;
+}
+
+.table-row {
+    padding: 12px 0px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.small-btn button {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ===============================
 # STUDENT DATA
 # ===============================
 
@@ -173,27 +196,47 @@ students = [
     }
 ]
 
-st.markdown("### Students")
+# HEADER
+
+st.markdown("### Students")                                                           
 
 header_cols = st.columns([2, 2, 2, 1, 2, 3])
-
 headers = ["Student Name", "Class", "Subject", "Grade", "School", "Actions"]
 
 for col, header in zip(header_cols, headers):
-    col.markdown(f"**{header}**")
+    col.markdown(f"<div class='table-header'>{header}</div>", unsafe_allow_html=True)
+st.markdown("<hr>", unsafe_allow_html=True)
+
+
+# ROWS WITH ACTION BUTTONS
 
 for student in students:
     row = st.columns([2, 2, 2, 1, 2, 3])
 
-    row[0].write(student["name"])
-    row[1].write(student["class"])
-    row[2].write(student["subject"])
-    row[3].write(student["grade"])
-    row[4].write(student["school"])
+    row[0].markdown(f"<div class='table-row'>{student['name']}</div>", unsafe_allow_html=True)
+    row[1].markdown(f"<div class='table-row'>{student['class']}</div>", unsafe_allow_html=True)
+    row[2].markdown(f"<div class='table-row'>{student['subject']}</div>", unsafe_allow_html=True)
+    row[3].markdown(f"<div class='table-row'>{student['grade']}</div>", unsafe_allow_html=True)
+    row[4].markdown(f"<div class='table-row'>{student['school']}</div>", unsafe_allow_html=True)
 
     action_cols = row[5].columns(4)
 
-    action_cols[0].button("Add Note", key=f"note_{student['name']}")
-    action_cols[1].button("Add Journey", key=f"journey_{student['name']}")
-    action_cols[2].button("Survey", key=f"survey_{student['name']}")
-    action_cols[3].button("Report", key=f"report_{student['name']}")
+    with action_cols[0]:
+        st.markdown("<div class='small-btn'>", unsafe_allow_html=True)
+        st.button("Add Note", key=f"note_{student['name']}")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with action_cols[1]:
+        st.markdown("<div class='small-btn'>", unsafe_allow_html=True)
+        st.button("Add Journey", key=f"journey_{student['name']}")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with action_cols[2]:
+        st.markdown("<div class='small-btn'>", unsafe_allow_html=True)
+        st.button("Survey", key=f"survey_{student['name']}")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with action_cols[3]:
+        st.markdown("<div class='small-btn'>", unsafe_allow_html=True)
+        st.button("Report", key=f"report_{student['name']}")
+        st.markdown("</div>", unsafe_allow_html=True)
